@@ -7,7 +7,7 @@ import { os2ip } from "./primitives.ts";
 type RSAImportKeyFormat = "auto" | "jwk" | "pem";
 type RSAPublicKeyFormat = [[string, null], [[bigint, bigint]]];
 type RSACertKeyFormat = [
-  [number, string, null, null, null, RSAPublicKeyFormat],
+  [number, string, null, null, null, null, RSAPublicKeyFormat],
 ];
 
 /**
@@ -63,9 +63,9 @@ function rsa_import_pem_cert(key: string): RSAKeyParams {
   ) as RSACertKeyFormat;
 
   return {
-    length: get_key_size(parseKey[0][5][1][0][0]),
-    n: parseKey[0][5][1][0][0],
-    e: parseKey[0][5][1][0][1],
+    length: get_key_size(parseKey[0][6][1][0][0]),
+    n: parseKey[0][6][1][0][0],
+    e: parseKey[0][6][1][0][1],
   };
 }
 
